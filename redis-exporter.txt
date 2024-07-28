@@ -1,0 +1,5 @@
+# Exporter
+
+curl -s https://api.github.com/repos/oliver006/redis_exporter/releases/latest | grep browser_download_url | grep linux-amd64 | cut -d '"' -f 4 | wget -qi -
+tar xvf redis_exporter-*.linux-amd64.tar.gz
+./redis_exporter --log-format=txt --namespace=redis --web.listen-address=:9121 --web.telemetry-path=/metrics
