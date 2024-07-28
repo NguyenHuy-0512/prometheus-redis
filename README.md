@@ -1,1 +1,3 @@
 # prometheus-redis
+
+- prometheus.yml
