@@ -3,3 +3,15 @@
 curl -s https://api.github.com/repos/oliver006/redis_exporter/releases/latest | grep browser_download_url | grep linux-amd64 | cut -d '"' -f 4 | wget -qi -
 tar xvf redis_exporter-*.linux-amd64.tar.gz
 ./redis_exporter --log-format=txt --namespace=redis --web.listen-address=:9121 --web.telemetry-path=/metrics
+
+# Giám sát service bang Prometheus:
+- Giám sát cluster:
+redis_connected_slaves: Số lượng slave đang kết nối.
+redis_master_link_up:  Trạng thái kết nối tới master (đối với slave).
+- DB:
+redis_db_keys: tổng số key
+redis_db_keys_expiring: số key có thời gian sống
+redis_expired_keys_total: số key đã hết hạn kể 
+redis_evicted_keys_total: số key đã bị đuổi (evicted) kể từ khi Redis được khởi động
+- Error:
+redis_total_error_replies: Tổng số lỗi trả về cho client
